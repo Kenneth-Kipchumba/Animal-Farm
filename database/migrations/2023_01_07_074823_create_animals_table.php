@@ -23,6 +23,8 @@ return new class extends Migration
             $table->float('selling_weight')->nullable();
             $table->string('brought_from');
             $table->string('sold_to')->nullable();
+            $table->string('buying_price')->nullable();
+            $table->string('selling_price')->nullable();
             $table->string('initial_animal_image')->nullable();
             $table->string('current_animal_image')->nullable();
             $table->mediumText('brief_history')->nullable();

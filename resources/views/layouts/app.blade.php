@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <title>{{ config('app.name') }}</title>
@@ -71,9 +71,15 @@
 
     <!-- Main Footer -->
     <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 1.0
-        </div>
+        @env('local')
+          <div class="float-right d-none d-sm-block">
+            Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+          </div>
+        @else
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 1.0
+            </div>
+        @endenv
         <strong>Copyright &copy; {{ date('Y') }} <a href="https://adminlte.io">{{ config('app.name') }}</a>.</strong> All rights
         reserved.
     </footer>
