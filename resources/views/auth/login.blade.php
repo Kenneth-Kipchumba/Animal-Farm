@@ -15,10 +15,10 @@
     @vite(['resources/css/app.css'])
 
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url({{ url('assets/img/Kayanet-Logo.jpeg') }});">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
+        <a href="{{ url('/home') }}"><b>{{ config('app.name', 'Animal Farm') }}</b></a>
     </div>
     <!-- /.login-logo -->
 

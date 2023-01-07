@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\BreedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,11 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+
+// Animal Routes
+//Route::resource('/animals', AnimalController::class)->name('animals');
+
+Route::resources([
+    'animals' => AnimalController::class,
+    'breeds' => BreedController::class,
+]);

@@ -3,3 +3,13 @@
 
 // Bootstrap
 @import '~admin-lte/build/scss/adminlte';
+
+// Custom CSS
+
+$primary_color = a04e26;
+$secondary_color = faef24;
+$tertiary_color = e17d2d;
+
+body {
+	background-color: $tertiary_color;
+}
