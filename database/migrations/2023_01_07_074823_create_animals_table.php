@@ -15,21 +15,16 @@ return new class extends Migration
     {
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('feedlot_id')->constrained()->onDelete('cascade');
+            $table->foreignId('breed_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('tag');
-            $table->string('breed');
             $table->string('sex');
-            $table->float('buying_weight');
-            $table->float('selling_weight')->nullable();
-            $table->string('brought_from');
-            $table->string('sold_to')->nullable();
-            $table->string('buying_price')->nullable();
-            $table->string('selling_price')->nullable();
+            $table->string('age');
+            $table->float('entry_weight');
             $table->string('initial_animal_image')->nullable();
             $table->string('current_animal_image')->nullable();
             $table->mediumText('brief_history')->nullable();
-            $table->date('buying_date');
-            $table->date('selling_date')->nullable();
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });

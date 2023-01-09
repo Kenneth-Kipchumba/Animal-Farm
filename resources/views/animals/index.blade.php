@@ -18,28 +18,25 @@
                     <tr>
                       <th>Name</th>
                       <th>Tag</th>
-                      <th>Breed</th>
                       <th>Sex</th>
-                      <th>Current Weight</th>
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($animals as $animal)
                     <tr data-widget="expandable-table" aria-expanded="false">
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td>Approved</td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>$animal->name</td>
+                      <td>$animal->tag</td>
+                      <td>$animal->sex</td>
                     </tr>
                     <tr class="expandable-body d-none">
                       <td colspan="5">
                         <h4>Brief History</h4>
                         <p style="display: none;">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                          {{ $animal->brief_history }}
                         </p>
                       </td>
                     </tr>
-                    
+                    @endforeach
                   </tbody>
                   <tfoot>
                       {{ $animals->links() }}
@@ -90,7 +87,18 @@
                     <option data-select2-id="33">Friesan - Mixed Breed</option>
                     <option data-select2-id="34">Ashyre - Mixed Breed</option>
                     <option data-select2-id="35">Ashyre - Pure Breed</option>
-                  </select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="2" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-ndq8-container"><span class="select2-selection__rendered" id="select2-ndq8-container" role="textbox" aria-readonly="true" title="Friesan - Pure Breed">Friesan - Pure Breed</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                  </select>
+                  <span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="2" style="width: 100%;">
+                    <span class="selection">
+                        <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-ndq8-container">
+                            <span class="select2-selection__rendered" id="select2-ndq8-container" role="textbox" aria-readonly="true" title="Friesan - Pure Breed">
+                                Friesan - Pure Breed
+                            </span>
+                            <span class="select2-selection__arrow" role="presentation">
+                                <b role="presentation"></b>
+                            </span>
+                        </span>
+                    </span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
                 </div>
 
                 <div class="form-group">
@@ -166,7 +174,7 @@
                   </div>
 
                   <button type="submit" class="btn btn-primary float-end">
-                    Add
+                    Buy
                   </button>
                 </form>
               </div>

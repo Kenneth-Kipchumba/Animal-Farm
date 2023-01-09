@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\BreedController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FeedlotController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,5 @@ Auth::routes();
 Route::resources([
     'animals' => AnimalController::class,
     'breeds' => BreedController::class,
+    'feedlots' => FeedlotController::class,
 ]);

@@ -15,7 +15,9 @@ class BreedController extends Controller
      */
     public function index()
     {
-        return view('breeds.index');
+        $data['breeds'] = Breed::paginate(10);
+
+        return view('breeds.index', $data);
     }
 
     /**
@@ -36,7 +38,18 @@ class BreedController extends Controller
      */
     public function store(StoreBreedRequest $request)
     {
-        //
+        $breeds = [
+            'name'    => $request->input('name'),
+            'description' => $request->input('description'),
+        ];
+
+        //dd($breeds);
+        if (Breed::create($breeds))
+        {
+            return redirect('breeds')->with('success', 'Animal Breed added Successfully.');
+        }
+
+        return redirect('breeds')->with('error', 'Something went wrong. Try again');
     }
 
     /**

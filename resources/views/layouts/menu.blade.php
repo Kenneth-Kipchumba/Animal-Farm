@@ -6,9 +6,9 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ url('animals') }}" class="nav-link {{ Request::is('animals') ? 'active' : '' }}">
+    <a href="{{ url('feedlots') }}" class="nav-link {{ Request::is('feedlots') ? 'active' : '' }}">
         <i class="nav-icon fas fa-home"></i>
-        <p>Animals</p>
+        <p>Feedlots</p>
     </a>
 </li>
 <li class="nav-item">
@@ -17,3 +17,10 @@
         <p>Breeds</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ url('animals') }}" class="nav-link {{ Request::is('animals') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Animals</p>
+    </a>
+</li>
+

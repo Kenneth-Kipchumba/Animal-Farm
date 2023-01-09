@@ -52,7 +52,7 @@ class AnimalController extends Controller
             'buying_date' => Carbon::parse($request->input('buying_date')),
         ];
 
-        //dd($data);
+        dd($animals);
         if (Animal::create($animals))
         {
             return redirect('animals')->with('success', 'Animal added Successfully.');
