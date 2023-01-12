@@ -21,15 +21,11 @@
                   </thead>
                   <tbody>
                     @foreach($feedlots as $feedlot)
-                      <tr data-widget="expandable-table" aria-expanded="false">
-                        <td>{{ $feedlot->name }}</td>
-                      </tr>
-                      <tr class="expandable-body d-none">
-                        <td colspan="5">
-                          <h4>Purpose</h4>
-                          <p style="display: none;">
-                            {{ $feedlot->purpose }}
-                          </p>
+                      <tr>
+                        <td>
+                          <a href="{{ route('feedlots.show', $feedlot->id) }}" title="{{ $feedlot->purpose }}">
+                          {{ $feedlot->name }}
+                          </a>
                         </td>
                       </tr>
                     @endforeach
@@ -91,4 +87,10 @@
         </div>
         <!-- End Feedlot Create Modal -->
     </div>
+
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+  });
+</script>
 @endsection

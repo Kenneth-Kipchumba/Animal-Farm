@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFeedlotRequest;
 use App\Http\Requests\UpdateFeedlotRequest;
+use App\Models\Animal;
 use App\Models\Feedlot;
 
 class FeedlotController extends Controller
@@ -60,7 +61,10 @@ class FeedlotController extends Controller
      */
     public function show(Feedlot $feedlot)
     {
-        //
+        $data['feedlot'] = $feedlot;
+        $data['animals'] = Animal::where('feedlot_id', $feedlot->id)->paginate(10);
+
+        return view('feedlots.show', $data);
     }
 
     /**

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Animal;
+use App\Models\Breed;
+use App\Models\Feedlot;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -23,6 +26,16 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $animals = Animal::all();
+        $breeds = Breed::all();
+        $feedlots = Feedlot::all();
+
+        $data['total_animals'] = $animals->count();
+        $data['total_breeds'] = $breeds->count();
+        $data['total_feedlots'] = $feedlots->count();
+
+        //echo count($data);exit;
+        //dd($data);
+        return view('dashboard', $data);
     }
 }

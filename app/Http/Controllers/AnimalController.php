@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAnimalRequest;
 use App\Http\Requests\UpdateAnimalRequest;
 use App\Models\Animal;
+use App\Models\Breed;
+use App\Models\Feedlot;
 use Carbon\Carbon;
 
 class AnimalController extends Controller
@@ -17,6 +19,9 @@ class AnimalController extends Controller
     public function index()
     {
         $data['animals'] = Animal::paginate(10);
+
+        $data['breeds'] = Breed::all();
+        $data['feedlots'] = Feedlot::all();
 
         return view('animals.index', $data);
     }
@@ -40,19 +45,18 @@ class AnimalController extends Controller
     public function store(StoreAnimalRequest $request)
     {
         $animals = [
+            'feedlot_id' => $request->input('feedlot_id'),
+            'breed_id' => $request->input('breed_id'),
             'name'    => $request->input('name'),
             'tag' => $request->input('tag'),
-            'breed' => $request->input('breed'),
             'sex' => $request->input('sex'),
-            'buying_weight' => $request->input('buying_weight'),
-            'buying_price' => $request->input('buying_price'),
-            'brought_from' => $request->input('brought_from'),
+            'age' => $request->input('age'),
+            'entry_weight' => $request->input('entry_weight'),
             'initial_animal_image' => $request->input('initial_animal_image'),
-            'brief_history' => $request->input('brief_history'),
-            'buying_date' => Carbon::parse($request->input('buying_date')),
+            'brief_history' => $request->input('brief_history')
         ];
 
-        dd($animals);
+        //dd($animals);
         if (Animal::create($animals))
         {
             return redirect('animals')->with('success', 'Animal added Successfully.');
