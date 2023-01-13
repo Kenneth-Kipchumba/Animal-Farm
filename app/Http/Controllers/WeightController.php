@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreWeightRequest;
 use App\Http\Requests\UpdateWeightRequest;
 use App\Models\Weight;
+use Carbon\Carbon;
 
 class WeightController extends Controller
 {
@@ -36,7 +37,20 @@ class WeightController extends Controller
      */
     public function store(StoreWeightRequest $request)
     {
-        //
+        $weight = [
+            'animal_id' => $request->input('animal_id'),
+            'weight' => $request->input('weight'),
+            'date'    => Carbon::parse($request->input('date')),
+            'created_by' => auth()->user()->last_name
+        ];
+
+        //dd($weight);
+        if (Weight::create($weight))
+        {
+            return redirect()->back()->with('success', 'Weight recorded Successfully.');
+        }
+
+        return redirect('weight')->with('error', 'Something went wrong. Try again');
     }
 
     /**

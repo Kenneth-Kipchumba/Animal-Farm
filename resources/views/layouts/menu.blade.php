@@ -24,15 +24,16 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ url('sales') }}" class="nav-link {{ Request::is('sales') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-coins"></i>
-        <p>Sales</p>
-    </a>
-</li>
-<li class="nav-item">
     <a href="{{ url('purchases') }}" class="nav-link {{ Request::is('purchases') ? 'active' : '' }}">
         <i class="nav-icon fas fa-coins"></i>
         <p>Purchases</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ url('sales') }}" class="nav-link {{ Request::is('sales') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-coins"></i>
+        <p>Sales</p>
+    </a>
+</li>
+
 

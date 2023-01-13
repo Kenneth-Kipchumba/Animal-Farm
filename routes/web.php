@@ -7,8 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FeedlotController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\SalesController;
-use App\Models\Purchase;
-use App\Models\Sales;
+use App\Http\Controllers\WeightController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +35,5 @@ Route::resources([
     'feedlots' => FeedlotController::class,
     'purchases' => PurchaseController::class,
     'sales' => SalesController::class,
+    'weights' => WeightController::class,
 ]);

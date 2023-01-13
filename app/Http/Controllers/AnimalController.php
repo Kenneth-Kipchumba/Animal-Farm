@@ -7,6 +7,10 @@ use App\Http\Requests\UpdateAnimalRequest;
 use App\Models\Animal;
 use App\Models\Breed;
 use App\Models\Feedlot;
+use App\Models\Purchase;
+use App\Models\Sale;
+use App\Models\Sales;
+use App\Models\Weight;
 use Carbon\Carbon;
 
 class AnimalController extends Controller
@@ -73,7 +77,17 @@ class AnimalController extends Controller
      */
     public function show(Animal $animal)
     {
-        //
+        $data['animal'] = $animal;
+
+        $data['weights'] = Weight::where('animal_id', $animal->id)
+                                  ->paginate(5);
+        $data['purchase'] = Purchase::where('animal_id', $animal->id)
+                                  ->first();
+        $data['sale'] = Sale::where('animal_id', $animal->id)
+                                  ->first();
+        //dd($data['purchase']);
+
+        return view('animals.show', $data);
     }
 
     /**

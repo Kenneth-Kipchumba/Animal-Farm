@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePurchaseRequest;
 use App\Http\Requests\UpdatePurchaseRequest;
+use App\Models\Animal;
 use App\Models\Purchase;
 
 class PurchaseController extends Controller
@@ -15,7 +16,11 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        //
+        $data['purchases'] = Purchase::paginate(10);
+
+        $data['animals'] = Animal::paginate(10);
+
+        return view('purchases.index', $data);
     }
 
     /**

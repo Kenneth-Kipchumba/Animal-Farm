@@ -5,48 +5,51 @@
         <h1 class="text-black-50">Feedlots</h1>
 
         <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Expandable Table</h3>
-                <button class="btn float-right" data-toggle="modal" data-target="#animal-create">
+          <div class="card-header">
+              <button class="btn float-right" data-toggle="modal" data-target="#animal-create">
                     Add a New Feedlot
-                </button>
-            </div>
-            <!-- ./card-header -->
-            <div class="card-body">
-                <table class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach($feedlots as $feedlot)
-                      <tr>
-                        <td>
-                          <a href="{{ route('feedlots.show', $feedlot->id) }}" title="{{ $feedlot->purpose }}">
-                          {{ $feedlot->name }}
-                          </a>
-                        </td>
-                      </tr>
-                    @endforeach
-                  </tbody>
-                  <tfoot>
-                      {{ $feedlots->links() }}
-                  </tfoot>
-                </table>
-            </div>
+              </button>
+          </div>
+          <!-- ./card-header -->
+          <div class="card-body">
+            @if(count($feedlots) > 0)
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($feedlots as $feedlot)
+                  <tr>
+                    <td>
+                      <a href="{{ route('feedlots.show', $feedlot->id) }}" title="{{ $feedlot->purpose }}">
+                        {{ $feedlot->name }}
+                      </a>
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+              <tfoot>
+                  {{ $feedlots->links() }}
+              </tfoot>
+            </table>
+            @endif
+          </div>
             <!-- /.card-body -->
         </div>
 
         <!--Feedlot Create Modal -->
-        <div class="modal fade" id="animal-create" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="animal-create" data-backdrop="static" tabindex="-1">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">
                   Create A Feedlot
                 </h5>
-                <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                  &times;
+                </button>
               </div>
               <div class="modal-body">
                 <form method="POST" action="{{ route('feedlots.store') }}">

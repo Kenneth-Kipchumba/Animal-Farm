@@ -37,6 +37,7 @@
                             </form>
                           </td>
                         </tr>
+                        @if($breed->description != null)
                         <tr class="expandable-body d-none">
                           <td colspan="5">
                             <h4>Description</h4>
@@ -45,6 +46,7 @@
                             </p>
                           </td>
                         </tr>
+                        @endif
                     @endforeach
                   </tbody>
                   <tfoot>
