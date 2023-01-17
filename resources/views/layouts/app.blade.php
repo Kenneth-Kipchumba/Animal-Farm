@@ -9,6 +9,8 @@
           integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
           crossorigin="anonymous"/>
 
+    
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('resources/css/app.css') }}"> -->
     @vite(['resources/css/app.css'])
 
     @stack('third_party_stylesheets')
@@ -85,6 +87,7 @@
     </footer>
 </div>
 
+<!-- <script src="{{ asset('resources/js/app.js') }}"></script> -->
 @vite(['resources/js/app.js'])
 
 @stack('third_party_scripts')
