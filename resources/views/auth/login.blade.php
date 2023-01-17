@@ -12,7 +12,7 @@
           integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
           crossorigin="anonymous"/>
 
-    @vite(['resources/css/app.css'])
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/adminlte.min.css') }}">
 
 </head>
 <body class="hold-transition login-page" style="background-image: url({{ url('assets/img/Kayanet-Logo.jpeg') }});">
@@ -88,7 +88,7 @@
 </div>
 <!-- /.login-box -->
 
-@vite(['resources/js/app.js'])
+<script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
 
 </body>
 </html>

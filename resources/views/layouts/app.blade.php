@@ -87,6 +87,9 @@
     </footer>
 </div>
 
+<script src="{{ asset('dist/js/jquery.min.js') }}"></script>
+<script src="{{ asset('dist/js/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
 
 @stack('third_party_scripts')
