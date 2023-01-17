@@ -21,6 +21,13 @@ return new class extends Migration
             'email' => 'kipchumba.kenneth@ymail.com',
             'password' => Hash::make('password')
         ]);
+
+        User::create([
+            'first_name' => 'Samson',
+            'last_name' => 'Cherutich',
+            'email' => 'cherutichsam@gmail.com',
+            'password' => Hash::make('password')
+        ]);
     }
 
     /**
