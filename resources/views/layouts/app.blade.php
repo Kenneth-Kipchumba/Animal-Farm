@@ -10,8 +10,8 @@
           crossorigin="anonymous"/>
 
     
-    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('resources/css/app.css') }}"> -->
-    @vite(['resources/css/app.css'])
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/adminlte.min.css') }}">
+    
 
     @stack('third_party_stylesheets')
 
@@ -87,8 +87,7 @@
     </footer>
 </div>
 
-<!-- <script src="{{ asset('resources/js/app.js') }}"></script> -->
-@vite(['resources/js/app.js'])
+<script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
 
 @stack('third_party_scripts')
 
